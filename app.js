@@ -27,7 +27,7 @@ const magic8Responses = [
   ]
 
 app.get('/', (req, res) => {
-    res.send('Hello, world!');
+    res.status(200).send('Hello, world!');
 });
 
 
@@ -78,10 +78,12 @@ app.get('/terminator', (req, res) => {
 app.get('/magic8', (req, res) => {
     const randomMsg = Math.floor(Math.random() * magic8Responses.length);
     const result = magic8Responses[randomMsg];
-    res.send(`<h1>${randomMsg}</h1>`)
-})
+    res.send(`<h1>${result}</h1>`);
+});
 
 
 app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`)
-})
+});
+
+module.exports = app;
